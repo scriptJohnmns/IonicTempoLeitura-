@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tempo de Leitura
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div id="cabecalho">
+    <h1>Bem vindo(a), leitor(a)!</h1>
+    <ul>
+      <li>Pegue um livro e informe a quantidade de paginas</li>
+      <li>Abre em uma pagina com texto com inicio, meio e fim, semelhante a imagem:</li>
+      <li>Feito isso,clique no botão <strong>Iniciar</strong> e faça a leitura. </li>
+      <li>Após finalizar, clique no botão <strong>Parar</strong></li>
+    </ul>
+
+    <img src="assets/images/book.png">
+  </div>
+
+  <div id="formulario">
+    <ion-input placeholder="Digite aqui o numero de paginas" [(ngModel)] = "quantPaginas"></ion-input>
+    <ion-button *ngIf="cronometroIniciado == false" expand="block"(click) = "iniciaCronometro()" >Iniciar</ion-button>
+    <ion-button *ngIf="cronometroIniciado == true" expand="block"(click) = "paraCronometro()" >Parar</ion-button>
+  </div>
+
+  <div *ngIf="cronometroIniciado == true"  id="timer">
+    <img src="https://cdn.dribbble.com/users/203144/screenshots/1608156/flat-clockf.gif">
+  </div>
+
+  <div id="resultado" *ngIf="cronometroIniciado == false && resultado != null">
+    <br>
+    <ion-label>Tempo estiamdo de conclusão do livro</ion-label>
+    <br>
+    <ion-label>hh:mm:ss</ion-label>
+    <br>
+    <ion-label id="labeResultado">{{resultado}}</ion-label>
+    <ion-button color="danger" (click)="reiniciar()" >Reiniciar</ion-button>
+  </div>
+  
+</ion-content>

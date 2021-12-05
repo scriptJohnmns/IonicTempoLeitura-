@@ -1,0 +1,7 @@
+{
+  "name": "TempoLeitura",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
